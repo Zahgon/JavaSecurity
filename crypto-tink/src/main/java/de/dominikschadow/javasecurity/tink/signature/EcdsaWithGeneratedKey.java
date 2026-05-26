@@ -22,7 +22,6 @@ import com.google.crypto.tink.KeysetHandle;
 import com.google.crypto.tink.PublicKeySign;
 import com.google.crypto.tink.PublicKeyVerify;
 import com.google.crypto.tink.signature.SignatureConfig;
-
 import java.security.GeneralSecurityException;
 
 /**
@@ -32,6 +31,7 @@ import java.security.GeneralSecurityException;
  * @author Dominik Schadow
  */
 public class EcdsaWithGeneratedKey {
+
     /**
      * Init SignatureConfig in the Tink library.
      */
@@ -40,27 +40,18 @@ public class EcdsaWithGeneratedKey {
     }
 
     public KeysetHandle generatePrivateKey() throws GeneralSecurityException {
-        return KeysetHandle.generateNew(KeyTemplates.get("ECDSA_P256"));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public KeysetHandle generatePublicKey(KeysetHandle privateKeysetHandle) throws GeneralSecurityException {
-        return privateKeysetHandle.getPublicKeysetHandle();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public byte[] sign(KeysetHandle privateKeysetHandle, byte[] initialText) throws GeneralSecurityException {
-        PublicKeySign signer = privateKeysetHandle.getPrimitive(PublicKeySign.class);
-
-        return signer.sign(initialText);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public boolean verify(KeysetHandle publicKeysetHandle, byte[] signature, byte[] initialText) {
-        try {
-            PublicKeyVerify verifier = publicKeysetHandle.getPrimitive(PublicKeyVerify.class);
-            verifier.verify(signature, initialText);
-            return true;
-        } catch (GeneralSecurityException ex) {
-            // Signature is invalid
-            return false;
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

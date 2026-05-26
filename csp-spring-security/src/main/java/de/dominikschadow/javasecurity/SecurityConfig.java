@@ -29,16 +29,9 @@ import org.springframework.security.web.SecurityFilterChain;
  */
 @Configuration
 public class SecurityConfig {
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) {
-        // @formatter:off
-        http
-            .headers(headers -> headers
-                    .contentSecurityPolicy(csp -> csp
-                            .policyDirectives("default-src 'self'"))
-            );
-        // @formatter:on
-
-        return http.build();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

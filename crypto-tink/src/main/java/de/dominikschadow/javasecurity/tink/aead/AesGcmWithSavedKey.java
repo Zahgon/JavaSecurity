@@ -19,7 +19,6 @@ package de.dominikschadow.javasecurity.tink.aead;
 
 import com.google.crypto.tink.*;
 import com.google.crypto.tink.aead.AeadConfig;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -33,6 +32,7 @@ import java.security.GeneralSecurityException;
  * @author Dominik Schadow
  */
 public class AesGcmWithSavedKey {
+
     /**
      * Init AeadConfig in the Tink library.
      */
@@ -47,25 +47,18 @@ public class AesGcmWithSavedKey {
      * @throws GeneralSecurityException Failure during keyset generation
      */
     public void generateAndStoreKey(File keyset) throws IOException, GeneralSecurityException {
-        if (!keyset.exists()) {
-            KeysetHandle keysetHandle = KeysetHandle.generateNew(KeyTemplates.get("AES128_GCM"));
-            CleartextKeysetHandle.write(keysetHandle, JsonKeysetWriter.withOutputStream(new FileOutputStream(keyset)));
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public KeysetHandle loadKey(File keyset) throws IOException, GeneralSecurityException {
-        return CleartextKeysetHandle.read(JsonKeysetReader.withInputStream(new FileInputStream(keyset)));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public byte[] encrypt(KeysetHandle keysetHandle, byte[] initialText, byte[] associatedData) throws GeneralSecurityException {
-        Aead aead = keysetHandle.getPrimitive(Aead.class);
-
-        return aead.encrypt(initialText, associatedData);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public byte[] decrypt(KeysetHandle keysetHandle, byte[] cipherText, byte[] associatedData) throws GeneralSecurityException {
-        Aead aead = keysetHandle.getPrimitive(Aead.class);
-
-        return aead.decrypt(cipherText, associatedData);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

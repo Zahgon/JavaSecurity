@@ -23,7 +23,6 @@ import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PostFilter;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -36,13 +35,13 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class ContactService {
+
     private final JdbcTemplate jdbcTemplate;
 
     @PreAuthorize("hasRole('USER')")
     @PostAuthorize("returnObject.username == principal.username")
     Contact getContact(int contactId) {
-        return jdbcTemplate.queryForObject("SELECT * FROM contacts WHERE id = ?",
-                (rs, rowNum) -> createContact(rs), contactId);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -56,7 +55,7 @@ public class ContactService {
     @PreAuthorize("hasRole('USER')")
     @PostFilter("filterObject.username == principal.username")
     List<Contact> getContacts() {
-        return jdbcTemplate.query("SELECT * FROM contacts", (rs, rowNum) -> createContact(rs));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     private Contact createContact(ResultSet rs) throws SQLException {

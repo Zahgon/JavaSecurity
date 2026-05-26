@@ -27,13 +27,14 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class GreetingService {
+
     @PreAuthorize("hasAnyRole('USER','ADMIN')")
     public String greetUser() {
-        return "Spring Security says hello to the user!";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     public String greetAdmin() {
-        return "Spring Security says hello to the admin!";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

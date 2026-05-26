@@ -31,12 +31,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @SpringBootApplication
 @Configuration
 public class Application implements WebMvcConfigurer {
+
     static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("index");
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

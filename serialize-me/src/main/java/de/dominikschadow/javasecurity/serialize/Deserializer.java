@@ -22,13 +22,8 @@ import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 
 public class Deserializer {
-    static void main() {
-        try (ObjectInputStream is = new ObjectInputStream(new BufferedInputStream(new FileInputStream("serialize-me.bin")))) {
-            SerializeMe me = (SerializeMe) is.readObject();
 
-            System.out.println("I am " + me.getFirstname() + " " + me.getLastname());
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+    static void main() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

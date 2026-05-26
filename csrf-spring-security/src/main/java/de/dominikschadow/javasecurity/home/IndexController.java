@@ -33,13 +33,14 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @RequestMapping(value = "/")
 @SessionAttributes("order")
 public class IndexController {
+
     @ModelAttribute("order")
     public Order order() {
-        return new Order("");
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @GetMapping
     public String index(@ModelAttribute("order") Order order) {
-        return "index";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -19,7 +19,6 @@ package de.dominikschadow.javasecurity.tink.mac;
 
 import com.google.crypto.tink.*;
 import com.google.crypto.tink.mac.MacConfig;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -33,6 +32,7 @@ import java.security.GeneralSecurityException;
  * @author Dominik Schadow
  */
 public class HmacShaWithSavedKey {
+
     /**
      * Init MacConfig in the Tink library.
      */
@@ -47,31 +47,18 @@ public class HmacShaWithSavedKey {
      * @throws GeneralSecurityException Failure during keyset generation
      */
     public void generateAndStoreKey(File keyset) throws IOException, GeneralSecurityException {
-        if (!keyset.exists()) {
-            KeysetHandle keysetHandle = KeysetHandle.generateNew(KeyTemplates.get("HMAC_SHA256_128BITTAG"));
-            CleartextKeysetHandle.write(keysetHandle, JsonKeysetWriter.withOutputStream(new FileOutputStream((keyset))));
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public KeysetHandle loadKey(File keyset) throws IOException, GeneralSecurityException {
-        return CleartextKeysetHandle.read(JsonKeysetReader.withInputStream(new FileInputStream(keyset)));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public byte[] computeMac(KeysetHandle keysetHandle, byte[] initialText) throws GeneralSecurityException {
-        Mac mac = keysetHandle.getPrimitive(Mac.class);
-
-        return mac.computeMac(initialText);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public boolean verifyMac(KeysetHandle keysetHandle, byte[] initialMac, byte[] initialText) {
-        try {
-            Mac mac = keysetHandle.getPrimitive(Mac.class);
-            mac.verifyMac(initialMac, initialText);
-
-            return true;
-        } catch (GeneralSecurityException ex) {
-            // MAC is invalid
-            return false;
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

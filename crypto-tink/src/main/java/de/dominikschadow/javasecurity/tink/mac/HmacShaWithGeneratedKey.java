@@ -21,7 +21,6 @@ import com.google.crypto.tink.KeyTemplates;
 import com.google.crypto.tink.KeysetHandle;
 import com.google.crypto.tink.Mac;
 import com.google.crypto.tink.mac.MacConfig;
-
 import java.security.GeneralSecurityException;
 
 /**
@@ -31,6 +30,7 @@ import java.security.GeneralSecurityException;
  * @author Dominik Schadow
  */
 public class HmacShaWithGeneratedKey {
+
     /**
      * Init MacConfig in the Tink library.
      */
@@ -39,24 +39,14 @@ public class HmacShaWithGeneratedKey {
     }
 
     public byte[] computeMac(KeysetHandle keysetHandle, byte[] initialText) throws GeneralSecurityException {
-        Mac mac = keysetHandle.getPrimitive(Mac.class);
-
-        return mac.computeMac(initialText);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public boolean verifyMac(KeysetHandle keysetHandle, byte[] initialMac, byte[] initialText) {
-        try {
-            Mac mac = keysetHandle.getPrimitive(Mac.class);
-            mac.verifyMac(initialMac, initialText);
-
-            return true;
-        } catch (GeneralSecurityException ex) {
-            // MAC is invalid
-            return false;
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public KeysetHandle generateKey() throws GeneralSecurityException {
-        return KeysetHandle.generateNew(KeyTemplates.get("HMAC_SHA256_128BITTAG"));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

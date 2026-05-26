@@ -29,7 +29,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @SpringBootApplication
 @EnableWebSecurity
 public class Application {
+
     static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

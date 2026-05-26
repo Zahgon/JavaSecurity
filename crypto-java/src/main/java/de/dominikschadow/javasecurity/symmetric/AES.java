@@ -41,25 +41,21 @@ import java.security.NoSuchAlgorithmException;
  * @author Dominik Schadow
  */
 public class AES {
+
     private final SecretKeySpec secretKeySpec;
+
     private final Cipher cipher;
 
     public AES(SecretKeySpec secretKeySpec, String algorithm) throws NoSuchPaddingException, NoSuchAlgorithmException {
         cipher = Cipher.getInstance(algorithm);
-
         this.secretKeySpec = secretKeySpec;
     }
 
-    public byte[] encrypt(String initialText) throws
-            BadPaddingException, IllegalBlockSizeException, InvalidKeyException {
-        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
-
-        return cipher.doFinal(initialText.getBytes(StandardCharsets.UTF_8));
+    public byte[] encrypt(String initialText) throws BadPaddingException, IllegalBlockSizeException, InvalidKeyException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public byte[] decrypt(byte[] ciphertext) throws
-            BadPaddingException, IllegalBlockSizeException, InvalidAlgorithmParameterException, InvalidKeyException {
-        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, new IvParameterSpec(cipher.getIV()));
-        return cipher.doFinal(ciphertext);
+    public byte[] decrypt(byte[] ciphertext) throws BadPaddingException, IllegalBlockSizeException, InvalidAlgorithmParameterException, InvalidKeyException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

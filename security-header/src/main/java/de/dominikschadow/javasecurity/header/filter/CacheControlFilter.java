@@ -28,23 +28,21 @@ import java.io.IOException;
  *
  * @author Dominik Schadow
  */
-@WebFilter(filterName = "CacheControlFilter", urlPatterns = {"/cache-control/protected.jsp", "/all/all.jsp"})
+@WebFilter(filterName = "CacheControlFilter", urlPatterns = { "/cache-control/protected.jsp", "/all/all.jsp" })
 public class CacheControlFilter implements Filter {
-    @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
-                         FilterChain filterChain) throws IOException, ServletException {
-        HttpServletResponse response = (HttpServletResponse) servletResponse;
-        response.addHeader("Cache-Control", "no-cache, must-revalidate, max-age=0, no-store");
-        response.addDateHeader("Expires", -1);
 
-        filterChain.doFilter(servletRequest, response);
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void init(FilterConfig filterConfig) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void destroy() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

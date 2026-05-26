@@ -22,7 +22,6 @@ import org.owasp.esapi.ESAPI;
 import org.owasp.esapi.codecs.OracleCodec;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -43,47 +42,31 @@ import java.util.Map;
 @Service
 @RequiredArgsConstructor
 public class CustomerService {
+
     private final JdbcTemplate jdbcTemplate;
 
     List<Customer> preparedStatementQuery(String name) {
-        String query = "SELECT * FROM customers WHERE name = ? ORDER BY id";
-
-        List<Map<String, Object>> rows = jdbcTemplate.queryForList(query, name);
-
-        return mapRows(rows);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     List<Customer> escapedQuery(String name) {
-        String safeName = ESAPI.encoder().encodeForSQL(new OracleCodec(), name);
-
-        String query = "SELECT * FROM customers WHERE name = '" + safeName + "' ORDER BY id";
-
-        List<Map<String, Object>> rows = jdbcTemplate.queryForList(query);
-
-        return mapRows(rows);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     List<Customer> simpleQuery(String name) {
-        String query = "SELECT * FROM customers WHERE name = '" + name + "' ORDER BY id";
-
-        List<Map<String, Object>> rows = jdbcTemplate.queryForList(query);
-
-        return mapRows(rows);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     private List<Customer> mapRows(List<Map<String, Object>> rows) {
         List<Customer> customers = new ArrayList<>();
-
         for (Map<String, Object> row : rows) {
             Customer customer = new Customer();
             customer.setId((Integer) row.get("id"));
             customer.setName((String) row.get("name"));
             customer.setStatus((String) row.get("status"));
             customer.setOrderLimit((Integer) row.get("order_limit"));
-
             customers.add(customer);
         }
-
         return customers;
     }
 }

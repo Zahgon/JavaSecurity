@@ -21,7 +21,6 @@ import com.google.crypto.tink.Aead;
 import com.google.crypto.tink.KeyTemplates;
 import com.google.crypto.tink.KeysetHandle;
 import com.google.crypto.tink.aead.AeadConfig;
-
 import java.security.GeneralSecurityException;
 
 /**
@@ -31,6 +30,7 @@ import java.security.GeneralSecurityException;
  * @author Dominik Schadow
  */
 public class AesEaxWithGeneratedKey {
+
     /**
      * Init AeadConfig in the Tink library.
      */
@@ -39,18 +39,14 @@ public class AesEaxWithGeneratedKey {
     }
 
     public KeysetHandle generateKey() throws GeneralSecurityException {
-        return KeysetHandle.generateNew(KeyTemplates.get("AES256_EAX"));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public byte[] encrypt(KeysetHandle keysetHandle, byte[] initialText, byte[] associatedData) throws GeneralSecurityException {
-        Aead aead = keysetHandle.getPrimitive(Aead.class);
-
-        return aead.encrypt(initialText, associatedData);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public byte[] decrypt(KeysetHandle keysetHandle, byte[] cipherText, byte[] associatedData) throws GeneralSecurityException {
-        Aead aead = keysetHandle.getPrimitive(Aead.class);
-
-        return aead.decrypt(cipherText, associatedData);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -20,7 +20,6 @@ package de.dominikschadow.javasecurity.tink.hybrid;
 import com.google.crypto.tink.*;
 import com.google.crypto.tink.hybrid.HybridConfig;
 import com.google.crypto.tink.integration.awskms.AwsKmsClient;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -45,7 +44,9 @@ import java.security.GeneralSecurityException;
  * the Default Credential Provider Chain</a>
  */
 public class EciesWithAwsKmsSavedKey {
+
     private static final String AWS_MASTER_KEY_URI = "aws-kms://arn:aws:kms:us-east-1:776241929911:key/7aeb00c6-d416-4130-bed1-a8ee6064d7d9";
+
     private final AwsKmsClient awsKmsClient;
 
     /**
@@ -65,14 +66,11 @@ public class EciesWithAwsKmsSavedKey {
      * @throws GeneralSecurityException Failure during keyset generation
      */
     public void generateAndStorePrivateKey(File keyset) throws IOException, GeneralSecurityException {
-        if (!keyset.exists()) {
-            KeysetHandle keysetHandle = KeysetHandle.generateNew(KeyTemplates.get("ECIES_P256_HKDF_HMAC_SHA256_AES128_GCM"));
-            keysetHandle.write(JsonKeysetWriter.withOutputStream(new FileOutputStream((keyset))), awsKmsClient.getAead(AWS_MASTER_KEY_URI));
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public KeysetHandle loadPrivateKey(File keyset) throws IOException, GeneralSecurityException {
-        return KeysetHandle.read(JsonKeysetReader.withInputStream(new FileInputStream(keyset)), awsKmsClient.getAead(AWS_MASTER_KEY_URI));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -82,25 +80,18 @@ public class EciesWithAwsKmsSavedKey {
      * @throws GeneralSecurityException Failure during keyset generation
      */
     public void generateAndStorePublicKey(KeysetHandle privateKeysetHandle, File keyset) throws IOException, GeneralSecurityException {
-        if (!keyset.exists()) {
-            KeysetHandle keysetHandle = privateKeysetHandle.getPublicKeysetHandle();
-            CleartextKeysetHandle.write(keysetHandle, JsonKeysetWriter.withOutputStream(new FileOutputStream((keyset))));
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public KeysetHandle loadPublicKey(File keyset) throws IOException, GeneralSecurityException {
-        return CleartextKeysetHandle.read(JsonKeysetReader.withInputStream(new FileInputStream(keyset)));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public byte[] encrypt(KeysetHandle publicKeysetHandle, byte[] initialText, byte[] contextInfo) throws GeneralSecurityException {
-        HybridEncrypt hybridEncrypt = publicKeysetHandle.getPrimitive(HybridEncrypt.class);
-
-        return hybridEncrypt.encrypt(initialText, contextInfo);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public byte[] decrypt(KeysetHandle privateKeysetHandle, byte[] cipherText, byte[] contextInfo) throws GeneralSecurityException {
-        HybridDecrypt hybridDecrypt = privateKeysetHandle.getPrimitive(HybridDecrypt.class);
-
-        return hybridDecrypt.decrypt(cipherText, contextInfo);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

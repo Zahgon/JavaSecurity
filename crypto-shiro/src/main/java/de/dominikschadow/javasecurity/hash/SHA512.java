@@ -21,7 +21,6 @@ import org.apache.shiro.crypto.hash.DefaultHashService;
 import org.apache.shiro.crypto.hash.Hash;
 import org.apache.shiro.crypto.hash.HashRequest;
 import org.apache.shiro.lang.util.ByteSource;
-
 import java.util.Arrays;
 
 /**
@@ -31,33 +30,17 @@ import java.util.Arrays;
  * @author Dominik Schadow
  */
 public class SHA512 {
+
     /**
      * Nothing up my sleeve number as private salt, not good for production.
      */
-    private static final byte[] PRIVATE_SALT_BYTES = {3, 1, 4, 1, 5, 9, 2, 6, 5};
+    private static final byte[] PRIVATE_SALT_BYTES = { 3, 1, 4, 1, 5, 9, 2, 6, 5 };
 
     public Hash calculateHash(String password) {
-        ByteSource privateSalt = ByteSource.Util.bytes(PRIVATE_SALT_BYTES);
-        DefaultHashService hashService = new DefaultHashService();
-
-        HashRequest.Builder builder = new HashRequest.Builder();
-        builder.setSource(ByteSource.Util.bytes(password));
-        builder.setSalt(privateSalt);
-        builder.setAlgorithmName("SHA-512");
-
-        return hashService.computeHash(builder.build());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public boolean verifyPassword(byte[] originalHash, ByteSource publicSalt, String password) {
-        DefaultHashService hashService = new DefaultHashService();
-
-        HashRequest.Builder builder = new HashRequest.Builder();
-        builder.setSource(ByteSource.Util.bytes(password));
-        builder.setSalt(publicSalt);
-        builder.setAlgorithmName("SHA-512");
-
-        Hash comparisonHash = hashService.computeHash(builder.build());
-
-        return Arrays.equals(originalHash, comparisonHash.getBytes());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

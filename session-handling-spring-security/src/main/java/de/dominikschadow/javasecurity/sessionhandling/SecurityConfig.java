@@ -30,7 +30,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-
 import javax.sql.DataSource;
 
 /**
@@ -41,56 +40,19 @@ import javax.sql.DataSource;
 @Configuration
 @EnableMethodSecurity
 public class SecurityConfig {
+
     @Bean
     public DataSource dataSource() {
-        return new EmbeddedDatabaseBuilder()
-                .setType(EmbeddedDatabaseType.H2)
-                .addScript("schema.sql")
-                .build();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Bean
     public UserDetailsManager users(DataSource dataSource) {
-        UserDetails user = User.withDefaultPasswordEncoder()
-                .username("user")
-                .password("user")
-                .roles("USER")
-                .build();
-
-        UserDetails admin = User.withDefaultPasswordEncoder()
-                .username("admin")
-                .password("admin")
-                .roles("ADMIN")
-                .build();
-
-        JdbcUserDetailsManager users = new JdbcUserDetailsManager(dataSource);
-        users.createUser(user);
-        users.createUser(admin);
-
-        return users;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) {
-        // @formatter:off
-        http
-            .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers("/*", "/h2-console/**").permitAll()
-                .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")
-                .requestMatchers("/admin/**").hasRole("ADMIN")
-            )
-            .csrf(csrf -> csrf
-                .ignoringRequestMatchers("/h2-console/*")
-            )
-            .headers(headers -> headers
-                .frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin)
-            )
-            .formLogin(Customizer.withDefaults())
-            .logout(logout -> logout
-                .logoutSuccessUrl("/")
-            );
-        // @formatter:on
-
-        return http.build();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

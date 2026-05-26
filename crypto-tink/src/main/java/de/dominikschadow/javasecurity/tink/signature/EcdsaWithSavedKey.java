@@ -19,7 +19,6 @@ package de.dominikschadow.javasecurity.tink.signature;
 
 import com.google.crypto.tink.*;
 import com.google.crypto.tink.signature.SignatureConfig;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -33,6 +32,7 @@ import java.security.GeneralSecurityException;
  * @author Dominik Schadow
  */
 public class EcdsaWithSavedKey {
+
     /**
      * Init SignatureConfig in the Tink library.
      */
@@ -47,14 +47,11 @@ public class EcdsaWithSavedKey {
      * @throws GeneralSecurityException Failure during keyset generation
      */
     public void generateAndStorePrivateKey(File keyset) throws IOException, GeneralSecurityException {
-        if (!keyset.exists()) {
-            KeysetHandle keysetHandle = KeysetHandle.generateNew(KeyTemplates.get("ECDSA_P256"));
-            CleartextKeysetHandle.write(keysetHandle, JsonKeysetWriter.withOutputStream(new FileOutputStream((keyset))));
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public KeysetHandle loadPrivateKey(File keyset) throws IOException, GeneralSecurityException {
-        return CleartextKeysetHandle.read(JsonKeysetReader.withInputStream(new FileInputStream(keyset)));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -64,30 +61,18 @@ public class EcdsaWithSavedKey {
      * @throws GeneralSecurityException Failure during keyset generation
      */
     public void generateAndStorePublicKey(KeysetHandle privateKeysetHandle, File keyset) throws IOException, GeneralSecurityException {
-        if (!keyset.exists()) {
-            KeysetHandle keysetHandle = privateKeysetHandle.getPublicKeysetHandle();
-            CleartextKeysetHandle.write(keysetHandle, JsonKeysetWriter.withOutputStream(new FileOutputStream((keyset))));
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public KeysetHandle loadPublicKey(File keyset) throws IOException, GeneralSecurityException {
-        return CleartextKeysetHandle.read(JsonKeysetReader.withInputStream(new FileInputStream(keyset)));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public byte[] sign(KeysetHandle privateKeysetHandle, byte[] initialText) throws GeneralSecurityException {
-        PublicKeySign signer = privateKeysetHandle.getPrimitive(PublicKeySign.class);
-
-        return signer.sign(initialText);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public boolean verify(KeysetHandle publicKeysetHandle, byte[] signature, byte[] initialText) {
-        try {
-            PublicKeyVerify verifier = publicKeysetHandle.getPrimitive(PublicKeyVerify.class);
-            verifier.verify(signature, initialText);
-            return true;
-        } catch (GeneralSecurityException ex) {
-            // Signature is invalid
-            return false;
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -29,7 +29,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import java.net.MalformedURLException;
 import java.net.URLConnection;
 
@@ -43,27 +42,17 @@ import java.net.URLConnection;
 @RequiredArgsConstructor
 @Slf4j
 public class DownloadController {
+
     private final DownloadService downloadService;
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("indirectReferences", downloadService.getAllIndirectReferences());
-
-        return "index";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @GetMapping("download")
     @ResponseBody
     public ResponseEntity<Resource> download(@RequestParam("name") String name) {
-        try {
-            String originalName = downloadService.getFileByIndirectReference(name).getName();
-            String contentType = URLConnection.guessContentTypeFromName(originalName);
-            Resource resource = downloadService.loadAsResource(originalName);
-            return ResponseEntity.ok().contentType(MediaType.parseMediaType(contentType)).body(resource);
-        } catch (MalformedURLException | AccessControlException ex) {
-            log.error(ex.getMessage(), ex);
-        }
-
-        return ResponseEntity.notFound().build();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

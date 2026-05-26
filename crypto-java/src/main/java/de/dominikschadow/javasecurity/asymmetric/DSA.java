@@ -29,21 +29,14 @@ import java.security.*;
  * @author Dominik Schadow
  */
 public class DSA {
+
     private static final String ALGORITHM = "SHA1withDSA";
 
-    public byte[] sign(PrivateKey privateKey, String initialText) throws NoSuchAlgorithmException,
-            InvalidKeyException, SignatureException {
-        Signature dsa = Signature.getInstance(ALGORITHM);
-        dsa.initSign(privateKey);
-        dsa.update(initialText.getBytes(StandardCharsets.UTF_8));
-        return dsa.sign();
+    public byte[] sign(PrivateKey privateKey, String initialText) throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public boolean verify(PublicKey publicKey, byte[] signature, String initialText) throws
-            NoSuchAlgorithmException, InvalidKeyException, SignatureException {
-        Signature dsa = Signature.getInstance(ALGORITHM);
-        dsa.initVerify(publicKey);
-        dsa.update(initialText.getBytes(StandardCharsets.UTF_8));
-        return dsa.verify(signature);
+    public boolean verify(PublicKey publicKey, byte[] signature, String initialText) throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

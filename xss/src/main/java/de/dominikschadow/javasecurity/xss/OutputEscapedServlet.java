@@ -18,7 +18,6 @@
 package de.dominikschadow.javasecurity.xss;
 
 import org.owasp.encoder.Encode;
-
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,34 +31,16 @@ import java.io.Serial;
  *
  * @author Dominik Schadow
  */
-@WebServlet(name = "OutputEscapedServlet", urlPatterns = {"/escaped"})
+@WebServlet(name = "OutputEscapedServlet", urlPatterns = { "/escaped" })
 public class OutputEscapedServlet extends HttpServlet {
-	@Serial
+
+    @Serial
     private static final long serialVersionUID = 2290746121319783879L;
+
     private static final System.Logger LOG = System.getLogger(OutputEscapedServlet.class.getName());
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-        String name = request.getParameter("outputEscapedName");
-
-        LOG.log(System.Logger.Level.INFO, "Received {0} as name", name);
-
-        response.setContentType("text/html");
-
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<html><head>");
-            out.println("<title>Cross-Site Scripting (XSS) - Output Escaping</title>");
-            out.println("<link rel='stylesheet' type='text/css' href='resources/css/styles.css' />");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Cross-Site Scripting (XSS) - Output Escaping</h1>");
-            out.println("<p title='Hello " + Encode.forHtmlAttribute(name) + "'><strong>Hello </strong>");
-            Encode.forHtml(out, name);
-            out.println("</p>");
-            out.println("<p><a href='index.jsp'>Home</a></p>");
-            out.println("</body></html>");
-        } catch (IOException ex) {
-            LOG.log(System.Logger.Level.ERROR, ex.getMessage(), ex);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

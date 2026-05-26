@@ -30,17 +30,14 @@ import org.springframework.web.bind.annotation.PostMapping;
  */
 @Controller
 public class GreetingController {
+
     @GetMapping("/")
     public String home(Model model) {
-        model.addAttribute("greeting", new Greeting(""));
-
-        return "index";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @PostMapping("/greeting")
     public String greeting(Model model, @ModelAttribute Greeting greeting) {
-        model.addAttribute("result", greeting);
-
-        return "result";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

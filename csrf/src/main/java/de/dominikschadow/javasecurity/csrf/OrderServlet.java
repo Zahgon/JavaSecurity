@@ -31,70 +31,16 @@ import java.io.Serial;
  *
  * @author Dominik Schadow
  */
-@WebServlet(name = "OrderServlet", urlPatterns = {"/OrderServlet"})
+@WebServlet(name = "OrderServlet", urlPatterns = { "/OrderServlet" })
 public class OrderServlet extends HttpServlet {
+
     @Serial
     private static final long serialVersionUID = 168055850789919449L;
+
     private static final System.Logger LOG = System.getLogger(OrderServlet.class.getName());
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        LOG.log(System.Logger.Level.INFO, "Processing order servlet...");
-
-        if (!CSRFTokenHandler.isValid(request)) {
-            LOG.log(System.Logger.Level.INFO, "Order servlet: CSRF token is invalid");
-            response.setStatus(401);
-
-            try (PrintWriter out = response.getWriter()) {
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>");
-                out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"resources/css/styles.css\" />");
-                out.println("<title>Cross-Site Request Forgery (CSRF): Invalid token</title>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1>Cross-Site Request Forgery (CSRF): Invalid token</h1>");
-                out.println("<p><strong>Anti CSRF token is invalid!</strong></p>");
-                out.println("<p><a href=\"index.jsp\">Home</a></p>");
-                out.println("</body>");
-                out.println("</html>");
-            } catch (IOException ex) {
-                LOG.log(System.Logger.Level.ERROR, ex.getMessage(), ex);
-            }
-
-            return;
-        }
-
-        LOG.log(System.Logger.Level.INFO, "Order servlet: CSRF token is valid");
-
-        String product = request.getParameter("product");
-        int quantity;
-
-        try {
-            quantity = Integer.parseInt(request.getParameter("quantity"));
-        } catch (NumberFormatException ex) {
-            quantity = 0;
-        }
-
-        LOG.log(System.Logger.Level.INFO, "Ordered {0} items of product {1}", quantity, product);
-
-        response.setContentType("text/html");
-
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>");
-            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"resources/css/styles.css\" />");
-            out.println("<title>Cross-Site Request Forgery (CSRF): Order Confirmation</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Cross-Site Request Forgery (CSRF): Order Confirmation</h1>");
-            out.println("<p><strong>Ordered " + quantity + " of product " + product + "</strong></p>");
-            out.println("<p><a href=\"index.jsp\">Home</a></p>");
-            out.println("</body>");
-            out.println("</html>");
-        } catch (IOException ex) {
-            LOG.log(System.Logger.Level.ERROR, ex.getMessage(), ex);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -32,30 +32,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 @Slf4j
 public class HomeController {
+
     @GetMapping("/")
     public String home(Model model) {
-        model.addAttribute("login", new Login("", ""));
-
-        return "index";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @PostMapping("login")
     public String firstTask(Login login, Model model) {
-        String username = login.username();
-        String password = login.password();
-
-        log.info(SecurityMarkers.CONFIDENTIAL, "User {} with password {} logged in", username, password);
-        log.info(SecurityMarkers.EVENT_FAILURE, "User {} with password {} logged in", username, password);
-        log.info(SecurityMarkers.EVENT_SUCCESS, "User {} with password {} logged in", username, password);
-        log.info(SecurityMarkers.RESTRICTED, "User {} with password {} logged in", username, password);
-        log.info(SecurityMarkers.SECRET, "User {} with password {} logged in", username, password);
-        log.info(SecurityMarkers.SECURITY_AUDIT, "User {} with password {} logged in", username, password);
-        log.info(SecurityMarkers.SECURITY_FAILURE, "User {} with password {} logged in", username, password);
-        log.info(SecurityMarkers.SECURITY_SUCCESS, "User {} with password {} logged in", username, password);
-        log.info(SecurityMarkers.TOP_SECRET, "User {} with password {} logged in", username, password);
-
-        model.addAttribute("login", login);
-
-        return "login";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

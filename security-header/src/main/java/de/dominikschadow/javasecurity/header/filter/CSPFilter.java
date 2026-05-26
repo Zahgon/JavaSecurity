@@ -29,22 +29,21 @@ import java.io.IOException;
  *
  * @author Dominik Schadow
  */
-@WebFilter(filterName = "CSPFilter", urlPatterns = {"/csp/protected.jsp"})
+@WebFilter(filterName = "CSPFilter", urlPatterns = { "/csp/protected.jsp" })
 public class CSPFilter implements Filter {
-    @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
-                         FilterChain filterChain) throws IOException, ServletException {
-        HttpServletResponse response = (HttpServletResponse) servletResponse;
-        response.setHeader("Content-Security-Policy", "default-src 'self'; report-uri CSPReporting");
 
-        filterChain.doFilter(servletRequest, response);
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void init(FilterConfig filterConfig) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void destroy() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

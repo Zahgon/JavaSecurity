@@ -32,33 +32,16 @@ import java.io.Serial;
  *
  * @author Dominik Schadow
  */
-@WebServlet(name = "CSPServlet", urlPatterns = {"/csp"})
+@WebServlet(name = "CSPServlet", urlPatterns = { "/csp" })
 public class CSPServlet extends HttpServlet {
-	@Serial
+
+    @Serial
     private static final long serialVersionUID = 5117768874974567141L;
+
     private static final System.Logger LOG = System.getLogger(CSPServlet.class.getName());
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-        String name = request.getParameter("cspName");
-
-        LOG.log(System.Logger.Level.INFO, "Received {0} as name", name);
-
-        response.setContentType("text/html");
-        response.setHeader("Content-Security-Policy", "default-src 'self'");
-
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<html><head>");
-            out.println("<title>Cross-Site Scripting (XSS) - Content Security Policy</title>");
-            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"resources/css/styles.css\" />");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Cross-Site Scripting (XSS) - Content Security Policy</h1>");
-            out.println("<p>[" + name + "]</p>");
-            out.println("<p><a href=\"index.jsp\">Home</a></p>");
-            out.println("</body></html>");
-        } catch (IOException ex) {
-            LOG.log(System.Logger.Level.ERROR, ex.getMessage(), ex);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -29,22 +29,21 @@ import java.io.IOException;
  *
  * @author Dominik Schadow
  */
-@WebFilter(filterName = "XXSSProtectionFilter", urlPatterns = {"/x-xss-protection/protected.jsp", "/all/all.jsp"})
+@WebFilter(filterName = "XXSSProtectionFilter", urlPatterns = { "/x-xss-protection/protected.jsp", "/all/all.jsp" })
 public class XXSSProtectionFilter implements Filter {
-    @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
-                         FilterChain filterChain) throws IOException, ServletException {
-        HttpServletResponse response = (HttpServletResponse) servletResponse;
-        response.setHeader("X-XSS-Protection", "1; mode=block");
 
-        filterChain.doFilter(servletRequest, response);
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void init(FilterConfig filterConfig) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void destroy() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

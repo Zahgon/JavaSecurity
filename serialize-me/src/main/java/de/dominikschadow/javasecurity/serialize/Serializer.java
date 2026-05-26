@@ -21,16 +21,8 @@ import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
 public class Serializer {
-    static void main() {
-        SerializeMe serializeMe = new SerializeMe();
-        serializeMe.setFirstname("Arthur");
-        serializeMe.setLastname("Dent");
 
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("serialize-me.bin"))) {
-            oos.writeObject(serializeMe);
-            oos.flush();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+    static void main() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

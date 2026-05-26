@@ -17,10 +17,8 @@
  */
 package de.dominikschadow.javasecurity.symmetric;
 
-
 import org.apache.shiro.crypto.cipher.AesCipherService;
 import org.apache.shiro.lang.util.ByteSource;
-
 import java.security.Key;
 
 /**
@@ -29,6 +27,7 @@ import java.security.Key;
  * @author Dominik Schadow
  */
 public class AES {
+
     /**
      * Encrypts the given text using all Shiro defaults: 128 bit size, CBC mode, PKCS5 padding scheme.
      *
@@ -37,14 +36,10 @@ public class AES {
      * @return The encrypted text
      */
     public byte[] encrypt(Key key, byte[] initialText) {
-        AesCipherService cipherService = new AesCipherService();
-        ByteSource cipherText = cipherService.encrypt(initialText, key.getEncoded());
-
-        return cipherText.getBytes();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public byte[] decrypt(Key key, byte[] ciphertext) {
-        AesCipherService cipherService = new AesCipherService();
-        return cipherService.decrypt(ciphertext, key.getEncoded()).getClonedBytes();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -29,24 +29,21 @@ import java.io.IOException;
  *
  * @author Dominik Schadow
  */
-@WebFilter(filterName = "XFrameOptionsFilter", urlPatterns = {"/x-frame-options/protectedForm.jsp", "/all/all.jsp"})
+@WebFilter(filterName = "XFrameOptionsFilter", urlPatterns = { "/x-frame-options/protectedForm.jsp", "/all/all.jsp" })
 public class XFrameOptionsFilter implements Filter {
-    @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
-                         FilterChain filterChain) throws IOException, ServletException {
-        HttpServletResponse response = (HttpServletResponse) servletResponse;
-        response.addHeader("X-Frame-Options", "DENY");
-//        response.addHeader("X-Frame-Options", "SAMEORIGIN");
-//        response.addHeader("X-Frame-Options", "ALLOW-FROM http://localhost:8080");
 
-        filterChain.doFilter(servletRequest, response);
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void init(FilterConfig filterConfig) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void destroy() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -32,15 +32,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 @RequiredArgsConstructor
 public class CustomerController {
+
     private final CustomerService customerService;
 
     @GetMapping("/")
     public String home(Model model) {
-        model.addAttribute("simple", new Customer());
-        model.addAttribute("escaped", new Customer());
-        model.addAttribute("prepared", new Customer());
-
-        return "index";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -52,9 +49,7 @@ public class CustomerController {
      */
     @PostMapping("simple")
     public String simpleQuery(@ModelAttribute Customer customer, Model model) {
-        model.addAttribute("customers", customerService.simpleQuery(customer.getName()));
-
-        return "result";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -66,9 +61,7 @@ public class CustomerController {
      */
     @PostMapping("escaped")
     public String escapedQuery(@ModelAttribute Customer customer, Model model) {
-        model.addAttribute("customers", customerService.escapedQuery(customer.getName()));
-
-        return "result";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -80,8 +73,6 @@ public class CustomerController {
      */
     @PostMapping("prepared")
     public String preparedStatementQuery(@ModelAttribute Customer customer, Model model) {
-        model.addAttribute("customers", customerService.preparedStatementQuery(customer.getName()));
-
-        return "result";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

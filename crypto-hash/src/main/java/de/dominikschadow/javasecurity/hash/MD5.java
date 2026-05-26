@@ -20,7 +20,6 @@ package de.dominikschadow.javasecurity.hash;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
 import static de.dominikschadow.javasecurity.hash.PasswordComparator.comparePasswords;
 
 /**
@@ -30,18 +29,14 @@ import static de.dominikschadow.javasecurity.hash.PasswordComparator.comparePass
  * @author Dominik Schadow
  */
 public class MD5 {
+
     private static final String ALGORITHM = "MD5";
 
     public byte[] calculateHash(String password) throws NoSuchAlgorithmException {
-        MessageDigest md = MessageDigest.getInstance(ALGORITHM);
-        md.reset();
-        md.update(password.getBytes(StandardCharsets.UTF_8));
-        return md.digest();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public boolean verifyPassword(byte[] originalHash, String password) throws NoSuchAlgorithmException {
-        byte[] comparisonHash = calculateHash(password);
-
-        return comparePasswords(originalHash, comparisonHash);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

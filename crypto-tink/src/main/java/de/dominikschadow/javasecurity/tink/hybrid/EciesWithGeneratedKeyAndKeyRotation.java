@@ -19,7 +19,6 @@ package de.dominikschadow.javasecurity.tink.hybrid;
 
 import com.google.crypto.tink.*;
 import com.google.crypto.tink.hybrid.HybridConfig;
-
 import java.security.GeneralSecurityException;
 
 /**
@@ -29,6 +28,7 @@ import java.security.GeneralSecurityException;
  * @author Dominik Schadow
  */
 public class EciesWithGeneratedKeyAndKeyRotation {
+
     /**
      * Init HybridConfig in the Tink library.
      */
@@ -41,30 +41,22 @@ public class EciesWithGeneratedKeyAndKeyRotation {
      * disables the original primary key.
      */
     public KeysetHandle rotateKey(KeysetHandle keysetHandle) throws GeneralSecurityException {
-        KeysetHandle handle = KeysetManager.withKeysetHandle(keysetHandle).add(KeyTemplates.get("ECIES_P256_HKDF_HMAC_SHA256_AES128_CTR_HMAC_SHA256")).getKeysetHandle();
-
-        handle = KeysetManager.withKeysetHandle(handle).setPrimary(handle.getKeysetInfo().getKeyInfo(1).getKeyId()).getKeysetHandle();
-
-        return KeysetManager.withKeysetHandle(handle).disable(handle.getKeysetInfo().getKeyInfo(0).getKeyId()).getKeysetHandle();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public KeysetHandle generatePrivateKey() throws GeneralSecurityException {
-        return KeysetHandle.generateNew(KeyTemplates.get("ECIES_P256_HKDF_HMAC_SHA256_AES128_GCM"));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public KeysetHandle generatePublicKey(KeysetHandle privateKeysetHandle) throws GeneralSecurityException {
-        return privateKeysetHandle.getPublicKeysetHandle();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public byte[] encrypt(KeysetHandle publicKeysetHandle, byte[] initialText, byte[] contextInfo) throws GeneralSecurityException {
-        HybridEncrypt hybridEncrypt = publicKeysetHandle.getPrimitive(HybridEncrypt.class);
-
-        return hybridEncrypt.encrypt(initialText, contextInfo);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public byte[] decrypt(KeysetHandle privateKeysetHandle, byte[] cipherText, byte[] contextInfo) throws GeneralSecurityException {
-        HybridDecrypt hybridDecrypt = privateKeysetHandle.getPrimitive(HybridDecrypt.class);
-
-        return hybridDecrypt.decrypt(cipherText, contextInfo);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -24,7 +24,6 @@ import org.owasp.esapi.reference.RandomAccessReferenceMap;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
-
 import java.io.File;
 import java.net.MalformedURLException;
 import java.util.HashSet;
@@ -33,8 +32,11 @@ import java.util.Set;
 @Service
 @Slf4j
 public class DownloadService {
+
     private final Set<Object> resources = new HashSet<>();
+
     private final RandomAccessReferenceMap referenceMap = new RandomAccessReferenceMap(resources);
+
     private final String rootLocation;
 
     public DownloadService() {
@@ -43,40 +45,18 @@ public class DownloadService {
 
     @PostConstruct
     protected void init() {
-        File coverImage = new File("cover.pdf");
-        referenceMap.addDirectReference(coverImage);
-        resources.add(coverImage);
-
-        File coverPdf = new File("cover.jpg");
-        referenceMap.addDirectReference(coverPdf);
-        resources.add(coverPdf);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     Set<String> getAllIndirectReferences() {
-        Set<String> indirectReferences = new HashSet<>();
-
-        for (Object file : resources) {
-            String indirectReference = referenceMap.getIndirectReference(file);
-            indirectReferences.add(indirectReference);
-        }
-
-        return indirectReferences;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     File getFileByIndirectReference(String indirectReference) throws AccessControlException {
-        File file = referenceMap.getDirectReference(indirectReference);
-
-        log.info("File name {}", file.getName());
-
-        return file;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     Resource loadAsResource(String filename) throws MalformedURLException {
-        Resource resource = new UrlResource(rootLocation + filename);
-        if (resource.exists() || resource.isReadable()) {
-            return resource;
-        }
-
-        return null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

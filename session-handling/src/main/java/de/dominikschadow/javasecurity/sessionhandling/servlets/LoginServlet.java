@@ -25,41 +25,16 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Serial;
 
-@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
+@WebServlet(name = "LoginServlet", urlPatterns = { "/LoginServlet" })
 public class LoginServlet extends HttpServlet {
+
     private static final System.Logger LOG = System.getLogger(LoginServlet.class.getName());
+
     @Serial
     private static final long serialVersionUID = 1L;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-        String currentSessionId = request.getSession().getId();
-
-        LOG.log(System.Logger.Level.INFO, "Original session ID {0}", currentSessionId);
-
-        // changes the session id in the session, returns the new one
-        String newSessionId = request.changeSessionId();
-
-        LOG.log(System.Logger.Level.INFO, "New session ID {0}", newSessionId);
-
-        response.setContentType("text/html");
-        response.setCharacterEncoding("UTF-8");
-
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<html><head>");
-            out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
-            out.println("<title>Session Handling</title>");
-            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"resources/css/styles.css\" />");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Session Handling</h1>");
-            out.println("<p><strong>Original Session ID: </strong> " + currentSessionId + "</p>");
-            out.println("<p><strong>New Session ID: </strong> " + newSessionId + "</p>");
-            out.println("<p><a href=\"index.jsp\">Home</a></p>");
-            out.println("</body>");
-            out.println("</html>");
-        } catch (IOException ex) {
-            LOG.log(System.Logger.Level.ERROR, ex.getMessage(), ex);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

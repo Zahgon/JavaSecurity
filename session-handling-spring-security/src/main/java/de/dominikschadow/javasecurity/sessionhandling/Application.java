@@ -30,7 +30,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @SpringBootApplication
 @EnableWebSecurity
 public class Application implements WebMvcConfigurer {
+
     static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

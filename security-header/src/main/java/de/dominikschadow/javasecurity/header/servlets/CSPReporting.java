@@ -18,7 +18,6 @@
 package de.dominikschadow.javasecurity.header.servlets;
 
 import com.google.gson.*;
-
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,21 +33,16 @@ import java.nio.charset.StandardCharsets;
  *
  * @author Dominik Schadow
  */
-@WebServlet(name = "CSPReporting", urlPatterns = {"/csp/CSPReporting"})
+@WebServlet(name = "CSPReporting", urlPatterns = { "/csp/CSPReporting" })
 public class CSPReporting extends HttpServlet {
+
     @Serial
     private static final long serialVersionUID = 5150026442855960085L;
+
     private static final System.Logger LOG = System.getLogger(CSPReporting.class.getName());
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-        try (InputStreamReader isr = new InputStreamReader(request.getInputStream(), StandardCharsets.UTF_8); BufferedReader reader = new BufferedReader(isr)) {
-            Gson gs = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
-            JsonElement element = JsonParser.parseReader(reader);
-
-            LOG.log(System.Logger.Level.INFO, "\n{}", gs.toJson(element));
-        } catch (IOException | JsonSyntaxException ex) {
-            LOG.log(System.Logger.Level.ERROR, ex.getMessage(), ex);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

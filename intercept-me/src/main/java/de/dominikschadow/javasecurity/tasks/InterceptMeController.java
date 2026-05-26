@@ -31,30 +31,19 @@ import org.thymeleaf.util.StringUtils;
  */
 @Controller
 public class InterceptMeController {
+
     @GetMapping("/")
     public String home(Model model) {
-        model.addAttribute("firstTask", new FirstTask(""));
-        
-        return "index";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @PostMapping("first")
     public String firstTask(FirstTask firstTask, Model model) {
-        String result = "FAILURE";
-
-        if (StringUtils.equals(firstTask.name(), "inject")) {
-            result = "SUCCESS";
-        }
-
-        model.addAttribute("result", result);
-
-        return "result";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @PostMapping("second")
     public String secondTask(Model model) {
-        model.addAttribute("result", "FAILURE");
-
-        return "result";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

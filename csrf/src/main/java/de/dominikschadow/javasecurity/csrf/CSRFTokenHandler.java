@@ -19,7 +19,6 @@ package de.dominikschadow.javasecurity.csrf;
 
 import com.google.common.base.Objects;
 import com.google.common.base.Strings;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -36,7 +35,9 @@ import java.security.SecureRandom;
  * @author Dominik Schadow
  */
 public final class CSRFTokenHandler {
+
     public static final String CSRF_TOKEN = "CSRF_TOKEN";
+
     private static final String MISSING_SESSION = "No session available";
 
     /**
@@ -51,31 +52,11 @@ public final class CSRFTokenHandler {
         return String.valueOf(sr.nextLong());
     }
 
-    public static String getToken(HttpSession session) throws ServletException, NoSuchAlgorithmException,
-            NoSuchProviderException {
-        if (session == null) {
-            throw new ServletException(MISSING_SESSION);
-        }
-
-        String token = (String) session.getAttribute(CSRF_TOKEN);
-
-        if (Strings.isNullOrEmpty(token)) {
-            token = getToken();
-            session.setAttribute(CSRF_TOKEN, token);
-        }
-
-        return token;
+    public static String getToken(HttpSession session) throws ServletException, NoSuchAlgorithmException, NoSuchProviderException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static boolean isValid(HttpServletRequest request) throws ServletException {
-        if (request.getSession(false) == null) {
-            throw new ServletException(MISSING_SESSION);
-        }
-
-        try {
-            return Objects.equal(getToken(request.getSession(false)), request.getParameter(CSRF_TOKEN));
-        } catch (NoSuchAlgorithmException | NoSuchProviderException ex) {
-            return false;
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

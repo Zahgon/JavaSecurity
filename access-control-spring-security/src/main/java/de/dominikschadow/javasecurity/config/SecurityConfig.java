@@ -31,7 +31,6 @@ import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-
 import javax.sql.DataSource;
 
 /**
@@ -43,50 +42,19 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfig {
+
     @Bean
     public DataSource dataSource() {
-        return new EmbeddedDatabaseBuilder()
-                .setType(EmbeddedDatabaseType.H2)
-                .addScript(JdbcDaoImpl.DEFAULT_USER_SCHEMA_DDL_LOCATION)
-                .build();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Bean
     public UserDetailsManager users(DataSource dataSource) {
-        UserDetails user = User.withDefaultPasswordEncoder()
-                .username("userA")
-                .password("userA")
-                .roles("USER")
-                .build();
-
-        UserDetails admin = User.withDefaultPasswordEncoder()
-                .username("userB")
-                .password("userB")
-                .roles("USER")
-                .build();
-
-        JdbcUserDetailsManager users = new JdbcUserDetailsManager(dataSource);
-        users.createUser(user);
-        users.createUser(admin);
-
-        return users;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) {
-        return http.authorizeHttpRequests(auth -> {
-                    auth.requestMatchers("/", "/error").permitAll();
-                    auth.requestMatchers("/h2-console/**").permitAll();
-                    auth.requestMatchers("/css/**").permitAll();
-                    auth.requestMatchers("/favicon.ico", "/favicon.svg").permitAll();
-
-                    auth.requestMatchers("/contacts/**").hasRole("USER");
-
-                    auth.anyRequest().authenticated();
-                })
-                .csrf(csrf -> csrf.ignoringRequestMatchers("/h2-console/*"))
-                .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin))
-                .formLogin(formLogin -> formLogin.defaultSuccessUrl("/contacts"))
-                .logout(formLogout -> formLogout.logoutSuccessUrl("/")).build();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

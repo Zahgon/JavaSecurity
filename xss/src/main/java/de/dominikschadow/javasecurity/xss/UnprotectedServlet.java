@@ -30,32 +30,16 @@ import java.io.Serial;
  *
  * @author Dominik Schadow
  */
-@WebServlet(name = "UnprotectedServlet", urlPatterns = {"/unprotected"})
+@WebServlet(name = "UnprotectedServlet", urlPatterns = { "/unprotected" })
 public class UnprotectedServlet extends HttpServlet {
-	@Serial
+
+    @Serial
     private static final long serialVersionUID = -7015937301709375951L;
+
     private static final System.Logger LOG = System.getLogger(UnprotectedServlet.class.getName());
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-        String name = request.getParameter("unprotectedName");
-
-        LOG.log(System.Logger.Level.INFO, "Received {0} as name", name);
-
-        response.setContentType("text/html");
-
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<html><head>");
-            out.println("<title>Cross-Site Scripting (XSS) - Unprotected</title>");
-            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"resources/css/styles.css\" />");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Cross-Site Scripting (XSS) - Unprotected</h1>");
-            out.println("<p>[" + name + "]</p>");
-            out.println("<p><a href=\"index.jsp\">Home</a></p>");
-            out.println("</body></html>");
-        } catch (IOException ex) {
-            LOG.log(System.Logger.Level.ERROR, ex.getMessage(), ex);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

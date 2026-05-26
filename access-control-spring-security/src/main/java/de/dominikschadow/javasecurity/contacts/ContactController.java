@@ -24,7 +24,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import java.util.List;
 
 /**
@@ -37,27 +36,16 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 public class ContactController {
+
     private final ContactService contactService;
 
     @GetMapping
     public String list(Model model) {
-        List<Contact> contacts = contactService.getContacts();
-
-        log.info("Found {} contacts for user", contacts.size());
-
-        model.addAttribute("contacts", contacts);
-
-        return "contacts/list";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @GetMapping("{contactId}")
     public String details(@PathVariable int contactId, Model model) {
-        log.info("Loading contact with ID {} for user", contactId);
-
-        Contact contact = contactService.getContact(contactId);
-
-        model.addAttribute("contact", contact);
-
-        return "contacts/details";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

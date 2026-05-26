@@ -22,7 +22,6 @@ import javax.crypto.spec.PBEKeySpec;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
-
 import static de.dominikschadow.javasecurity.hash.PasswordComparator.comparePasswords;
 
 /**
@@ -32,36 +31,29 @@ import static de.dominikschadow.javasecurity.hash.PasswordComparator.comparePass
  * @author Dominik Schadow
  */
 public class PBKDF2 {
+
     private static final String ALGORITHM = "PBKDF2WithHmacSHA512";
+
     private static final int ITERATIONS = 10000;
+
     // salt size at least 32 byte
     private static final int SALT_SIZE = 32;
+
     private static final int HASH_SIZE = 512;
 
     public SecretKeyFactory createSecretKeyFactory() throws NoSuchAlgorithmException {
-        return SecretKeyFactory.getInstance(ALGORITHM);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public byte[] generateSalt() {
-        SecureRandom random = new SecureRandom();
-        byte[] salt = new byte[SALT_SIZE];
-        random.nextBytes(salt);
-
-        return salt;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public byte[] calculateHash(SecretKeyFactory skf, char[] password, byte[] salt) throws InvalidKeySpecException {
-        PBEKeySpec spec = new PBEKeySpec(password, salt, ITERATIONS, HASH_SIZE);
-        byte[] hash = skf.generateSecret(spec).getEncoded();
-        spec.clearPassword();
-
-        return hash;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public boolean verifyPassword(SecretKeyFactory skf, byte[] originalHash, char[] password, byte[] salt) throws
-            InvalidKeySpecException {
-        byte[] comparisonHash = calculateHash(skf, password, salt);
-
-        return comparePasswords(originalHash, comparisonHash);
+    public boolean verifyPassword(SecretKeyFactory skf, byte[] originalHash, char[] password, byte[] salt) throws InvalidKeySpecException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

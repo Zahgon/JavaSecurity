@@ -30,8 +30,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value = "/order")
 public class OrderController {
+
     @PostMapping()
     public String order(@ModelAttribute("order") Order order) {
-        return "result";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

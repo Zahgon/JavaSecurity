@@ -36,19 +36,14 @@ import java.security.PublicKey;
  * @author Dominik Schadow
  */
 public class RSA {
+
     private static final String ALGORITHM = "RSA";
 
-    public byte[] encrypt(PublicKey publicKey, String initialText) throws NoSuchPaddingException,
-            NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
-        Cipher cipher = Cipher.getInstance(ALGORITHM);
-        cipher.init(Cipher.ENCRYPT_MODE, publicKey);
-        return cipher.doFinal(initialText.getBytes(StandardCharsets.UTF_8));
+    public byte[] encrypt(PublicKey publicKey, String initialText) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    public byte[] decrypt(PrivateKey privateKey, byte[] ciphertext) throws NoSuchPaddingException,
-            NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
-        Cipher cipher = Cipher.getInstance(ALGORITHM);
-        cipher.init(Cipher.DECRYPT_MODE, privateKey);
-        return cipher.doFinal(ciphertext);
+    public byte[] decrypt(PrivateKey privateKey, byte[] ciphertext) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

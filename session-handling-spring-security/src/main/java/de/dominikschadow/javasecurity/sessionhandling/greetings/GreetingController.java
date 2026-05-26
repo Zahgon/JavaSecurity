@@ -31,28 +31,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 @RequiredArgsConstructor
 public class GreetingController {
+
     private final GreetingService greetingService;
 
     @GetMapping("/")
     public String index(Model model, HttpSession session) {
-        model.addAttribute("sessionId", session.getId());
-
-        return "index";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @GetMapping("user/user")
     public String greetUser(Model model, HttpSession session) {
-        model.addAttribute("sessionId", session.getId());
-        model.addAttribute("greeting", greetingService.greetUser());
-
-        return "user/user";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @GetMapping("admin/admin")
     public String greetAdmin(Model model, HttpSession session) {
-        model.addAttribute("sessionId", session.getId());
-        model.addAttribute("greeting", greetingService.greetAdmin());
-
-        return "admin/admin";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

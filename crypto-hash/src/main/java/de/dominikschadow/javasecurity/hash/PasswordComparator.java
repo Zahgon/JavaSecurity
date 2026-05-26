@@ -18,6 +18,7 @@
 package de.dominikschadow.javasecurity.hash;
 
 public class PasswordComparator {
+
     /**
      * Compares the two byte arrays in length-constant time using XOR.
      *
@@ -26,11 +27,6 @@ public class PasswordComparator {
      * @return True if both match, false otherwise
      */
     public static boolean comparePasswords(byte[] originalHash, byte[] comparisonHash) {
-        int diff = originalHash.length ^ comparisonHash.length;
-        for (int i = 0; i < originalHash.length && i < comparisonHash.length; i++) {
-            diff |= originalHash[i] ^ comparisonHash[i];
-        }
-
-        return diff == 0;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

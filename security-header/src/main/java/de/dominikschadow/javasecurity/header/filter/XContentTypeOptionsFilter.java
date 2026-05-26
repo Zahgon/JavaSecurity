@@ -30,24 +30,21 @@ import java.io.IOException;
  *
  * @author Dominik Schadow
  */
-@WebFilter(filterName = "XContentTypeOptionsFilter", urlPatterns = {"/x-content-type-options/protected.txt",
-        "/all/all.jsp"})
+@WebFilter(filterName = "XContentTypeOptionsFilter", urlPatterns = { "/x-content-type-options/protected.txt", "/all/all.jsp" })
 public class XContentTypeOptionsFilter implements Filter {
-    @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
-                         FilterChain filterChain) throws IOException, ServletException {
-        HttpServletResponse response = (HttpServletResponse) servletResponse;
-        response.setContentType("text/plain");
-        response.addHeader("X-Content-Type-Options", "nosniff");
 
-        filterChain.doFilter(servletRequest, response);
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void init(FilterConfig filterConfig) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void destroy() {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

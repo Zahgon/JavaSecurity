@@ -30,32 +30,16 @@ import java.io.Serial;
  *
  * @author Dominik Schadow
  */
-@WebServlet(name = "InputValidatedServlet", urlPatterns = {"/validated"})
+@WebServlet(name = "InputValidatedServlet", urlPatterns = { "/validated" })
 public class InputValidatedServlet extends HttpServlet {
-	@Serial
+
+    @Serial
     private static final long serialVersionUID = -3167797061670620847L;
+
     private static final System.Logger LOG = System.getLogger(InputValidatedServlet.class.getName());
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-        String name = request.getParameter("inputValidatedName");
-
-        LOG.log(System.Logger.Level.INFO, "Received {0} as name", name);
-
-        response.setContentType("text/html");
-
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<html><head>");
-            out.println("<title>Cross-Site Scripting (XSS) - Input Validation</title>");
-            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"resources/css/styles.css\" />");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Cross-Site Scripting (XSS) - Input Validation</h1>");
-            out.println("<p>[" + name + "]</p>");
-            out.println("<p><a href=\"index.jsp\">Home</a></p>");
-            out.println("</body></html>");
-        } catch (IOException ex) {
-            LOG.log(System.Logger.Level.ERROR, ex.getMessage(), ex);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

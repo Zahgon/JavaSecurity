@@ -21,24 +21,27 @@ import java.io.Serial;
 import java.io.Serializable;
 
 public class SerializeMe implements Serializable {
-	@Serial
+
+    @Serial
     private static final long serialVersionUID = 4811291877894678577L;
-	private String firstname;
+
+    private String firstname;
+
     private String lastname;
 
     public String getFirstname() {
-        return firstname;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public void setFirstname(String firstname) {
-        this.firstname = firstname;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getLastname() {
-        return lastname;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public void setLastname(String lastname) {
-        this.lastname = lastname;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

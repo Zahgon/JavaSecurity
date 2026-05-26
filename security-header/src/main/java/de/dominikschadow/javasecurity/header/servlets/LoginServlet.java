@@ -30,32 +30,16 @@ import java.io.Serial;
  *
  * @author Dominik Schadow
  */
-@WebServlet(name = "LoginServlet", urlPatterns = {"/x-frame-options/LoginServlet", "/cache-control/LoginServlet",
-        "/csp2/LoginServlet"})
+@WebServlet(name = "LoginServlet", urlPatterns = { "/x-frame-options/LoginServlet", "/cache-control/LoginServlet", "/csp2/LoginServlet" })
 public class LoginServlet extends HttpServlet {
+
     @Serial
     private static final long serialVersionUID = -660893987741671511L;
+
     private static final System.Logger LOG = System.getLogger(LoginServlet.class.getName());
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-        LOG.log(System.Logger.Level.INFO, "Processing login request...");
-
-        response.setContentType("text/html; charset=UTF-8");
-
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"../resources/css/styles.css\" />");
-            out.println("<title>Security Response Header</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Login successful</h1>");
-            out.println("<div><a href=\"../index.jsp\">Home</a></div>");
-            out.println("</body>");
-            out.println("</html>");
-        } catch (IOException ex) {
-            LOG.log(System.Logger.Level.ERROR, ex.getMessage(), ex);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }
